@@ -20,5 +20,5 @@ from testeo import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('test', views.index, name="test"),
+    path('test/', views.index, name="test"),
 ]

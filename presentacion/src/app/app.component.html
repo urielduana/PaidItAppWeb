@@ -330,18 +330,20 @@
   <p>Register a new user:</p>
 
   <div>
-    <form action="" class="basic-form">
+    <form action="" class="basic-form" (submit)="onSubmit()">
       <div class="form-part">
         <span class="span-form">Nick Name: </span>
-        <input class="input-form" type="text" placeholder="Nick Name">
+        <input class="input-form" type="text" placeholder="Nick Name" name="nick_name" [(ngModel)]="nick_name">
       </div>
       <div class="form-part">
         <span class="span-form">Full Name: </span>
-        <input class="input-form" type="text" placeholder="Full Name">
+        <input class="input-form" type="text" placeholder="Full Name" name="full_name" [(ngModel)]="full_name">
       </div>
+      <input type="submit" value="Submit">
+  
     </form>
   </div>
-
+  
   
 
   

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
 import { UserInsertService } from './user-insert.service';
+
 
 @Component({
   selector: 'app-root',
@@ -9,15 +8,16 @@ import { UserInsertService } from './user-insert.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  
   title = 'presentacion';
-
+  nick_name = '';
+  full_name = '';
+  
   constructor(private userInsertService: UserInsertService) {}
 
-  public ngOnInit () {
+  public onSubmit() {
     const formData = new FormData();
-    formData.append('nick_name', 'a');
-    formData.append('full_name', 'a');
+    formData.append('nick_name', this.nick_name);
+    formData.append('full_name', this.full_name);
 
     this.userInsertService.postFormData(formData).subscribe(
       error => {console.log(error)},
