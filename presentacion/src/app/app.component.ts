@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-  import { TestService } from './test.service'; 
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { UserInsertService } from './user-insert.service';
 
 @Component({
   selector: 'app-root',
@@ -10,15 +12,16 @@ export class AppComponent {
   
   title = 'presentacion';
 
-  constructor(private t: TestService) {}
-
-
+  constructor(private userInsertService: UserInsertService) {}
 
   public ngOnInit () {
-    this.t.gettest().subscribe(
+    const formData = new FormData();
+    formData.append('nick_name', 'a');
+    formData.append('full_name', 'a');
+
+    this.userInsertService.postFormData(formData).subscribe(
       error => {console.log(error)},
       success => {console.log(success)}
     );
-    
   }
 }
