@@ -33,25 +33,6 @@
   .spacer {
     flex: 1;
   }
-  .span-form{
-    color: #125699;
-
-  }
-  .input-form{
-    border-color: #eee;
-    background-color: #eff3f6;
-    border-radius: 10px;
-    height: fit-content;
-    padding-left: 10px;
-  }
-  .basic-form{
-    margin: 20px;
-    font-size:large;
-  }
-  .form-part{
-    margin: 10px;
-    padding: 10px;
-  }
 
   .toolbar {
     position: absolute;
@@ -330,16 +311,28 @@
   <p>Register a new user:</p>
 
   <div>
-    <form action="" class="basic-form" (submit)="onSubmit()">
-      <div class="form-part">
-        <span class="span-form">Nick Name: </span>
-        <input class="input-form" type="text" placeholder="Nick Name" name="nick_name" [(ngModel)]="nick_name">
+    <form action="" class="m-3" >
+
+      <div class="input-group mb-3 ">
+        <span class="input-group-text">▀</span>
+        <div class="form-floating">
+          <input type="text" class="form-control" id="floatingInputGroup1" name="nick_name" [(ngModel)]="nick_name">
+          <label for="floatingInputGroup1 fs-6 fw-lighter">Nick Name</label>
+        </div>
       </div>
-      <div class="form-part">
-        <span class="span-form">Full Name: </span>
-        <input class="input-form" type="text" placeholder="Full Name" name="full_name" [(ngModel)]="full_name">
+
+      <div class="input-group mb-3">
+        <span class="input-group-text">▀</span>
+        <div class="form-floating">
+          <input type="text" class="form-control" id="floatingInputGroup2" name="full_name" [(ngModel)]="full_name">
+          <label for="floatingInputGroup1 fs-6 fw-lighter">Full Name</label>
+        </div>
       </div>
-      <input type="submit" value="Submit">
+
+
+      <div class="row justify-content-center">
+        <button (click)="onSubmit()" class="btn btn-primary">Enviar</button>
+      </div>
   
     </form>
   </div>

@@ -14,14 +14,19 @@ export class AppComponent {
   
   constructor(private userInsertService: UserInsertService) {}
 
-  public onSubmit() {
+  public onSubmit(): void {
+    if ((!this.nick_name || !this.full_name)) {
+      alert('Por favor completa los campos Nick Name y Full Name.');
+      return;
+    }  
     const formData = new FormData();
     formData.append('nick_name', this.nick_name);
     formData.append('full_name', this.full_name);
-
+  
     this.userInsertService.postFormData(formData).subscribe(
       error => {console.log(error)},
       success => {console.log(success)}
     );
   }
+  
 }

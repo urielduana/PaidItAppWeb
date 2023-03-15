@@ -8,6 +8,8 @@ from sqlalchemy.orm import Session
 
 class Base(DeclarativeBase):
     pass
+
+
 engine = connect_to_db("root", "secret")
 Base.metadata.create_all(engine)
 session = Session(engine)

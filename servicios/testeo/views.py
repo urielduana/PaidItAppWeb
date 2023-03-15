@@ -12,7 +12,7 @@ from django.views.decorators.csrf import csrf_exempt
 def index(request):
     # body_unicode = request.body.decode('utf-8')
     # body = json.loads(body_unicode)
-    # # content = body['content']
+    # content = body['content']
     # nick_name = body['nick_name']
     # full_name = body['full_name']
     nick_name = request.POST.get('nick_name')
