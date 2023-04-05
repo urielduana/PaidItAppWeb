@@ -1,0 +1,23 @@
+version: "3.7"
+
+services:
+  db:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: paidit
+    volumes:
+      - C:\Users\Vadose\OneDrive\Documentos\PaidItAppWeb\vol:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+  presentacion:
+    image: paiditpresentacion:1.0.0
+    ports:
+      - "80:80"
+
+  servicios:
+    build: ./
+    restart: always
+    ports:
+      - "8000:8000"
